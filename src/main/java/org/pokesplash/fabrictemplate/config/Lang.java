@@ -44,10 +44,10 @@ public class Lang {
 			CompletableFuture<Boolean> futureWrite = Utils.writeFileAsync(FabricTemplate.BASE_PATH, "lang.json", data);
 
 			if (!futureWrite.join()) {
-				FabricTemplate.LOGGER.fatal("Could not write lang.json for " + FabricTemplate.BASE_PATH + ".");
+				FabricTemplate.LOGGER.fatal("Could not write lang.json for " + FabricTemplate.MOD_ID + ".");
 			}
 			return;
 		}
-		FabricTemplate.LOGGER.info(FabricTemplate.BASE_PATH + " lang file read successfully.");
+		FabricTemplate.LOGGER.info(FabricTemplate.MOD_ID + " lang file read successfully.");
 	}
 }
