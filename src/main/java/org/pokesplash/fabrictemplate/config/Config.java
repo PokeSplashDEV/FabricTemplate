@@ -16,7 +16,7 @@ public class Config {
 	}
 
 	public void init() {
-		CompletableFuture<Boolean> futureRead = Utils.readFileAsync("/config/suffixadvancements/",
+		CompletableFuture<Boolean> futureRead = Utils.readFileAsync(FabricTemplate.BASE_PATH,
 				"config.json", el -> {
 					Gson gson = Utils.newGson();
 					Config cfg = gson.fromJson(el, Config.class);
@@ -24,19 +24,20 @@ public class Config {
 				});
 
 		if (!futureRead.join()) {
-			FabricTemplate.LOGGER.info("No config.json file found for SuffixAdvancements. Attempting to generate " +
+			FabricTemplate.LOGGER.info("No config.json file found for " + FabricTemplate.MOD_ID + ". Attempting to generate" +
+					" " +
 					"one");
 			Gson gson = Utils.newGson();
 			String data = gson.toJson(this);
-			CompletableFuture<Boolean> futureWrite = Utils.writeFileAsync("/config/suffixadvancements/",
+			CompletableFuture<Boolean> futureWrite = Utils.writeFileAsync(FabricTemplate.BASE_PATH,
 					"config.json", data);
 
 			if (!futureWrite.join()) {
-				FabricTemplate.LOGGER.fatal("Could not write config for GTS.");
+				FabricTemplate.LOGGER.fatal("Could not write config for " + FabricTemplate.MOD_ID + ".");
 			}
 			return;
 		}
-		FabricTemplate.LOGGER.info("SuffixAdvancements config file read successfully");
+		FabricTemplate.LOGGER.info(FabricTemplate.MOD_ID + " config file read successfully");
 	}
 
 	public boolean isExample() {

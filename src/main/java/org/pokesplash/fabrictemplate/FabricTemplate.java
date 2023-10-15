@@ -8,8 +8,8 @@ import org.pokesplash.fabrictemplate.command.CommandHandler;
 import org.pokesplash.fabrictemplate.config.Config;
 
 public class FabricTemplate implements ModInitializer {
-
 	public static final String MOD_ID = "FabricTemplate";
+	public static final String BASE_PATH = "/config/" + MOD_ID + "/";
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final Config config = new Config();
 
