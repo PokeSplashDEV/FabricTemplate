@@ -1,11 +1,9 @@
 package org.pokesplash.fabrictemplate.config;
 
 import com.google.gson.Gson;
-import net.minecraft.world.gen.CountConfig;
 import org.pokesplash.fabrictemplate.FabricTemplate;
 import org.pokesplash.fabrictemplate.util.Utils;
 
-import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
 public class Config {
