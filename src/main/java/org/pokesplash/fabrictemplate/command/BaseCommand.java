@@ -23,7 +23,15 @@ public class BaseCommand {
 
 		LiteralCommandNode<ServerCommandSource> registeredCommand = dispatcher.register(root);
 
-		dispatcher.register(CommandManager.literal("fabtemp").redirect(registeredCommand).executes(this::run));
+		dispatcher.register(CommandManager.literal("fabtemp").requires(
+				ctx -> {
+					if (ctx.isExecutedByPlayer()) {
+						return LuckPermsUtils.hasPermission(ctx.getPlayer(), CommandHandler.basePermission + ".base");
+					} else {
+						return true;
+					}
+				})
+				.redirect(registeredCommand).executes(this::run));
 
 		registeredCommand.addChild(new ReloadCommand().build());
 
