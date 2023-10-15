@@ -1,5 +1,6 @@
 package org.pokesplash.fabrictemplate;
 
+import ca.landonjw.gooeylibs2.api.button.GooeyButton;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import org.apache.logging.log4j.LogManager;
