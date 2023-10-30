@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * Class to interact with the Impactor API
  */
-public abstract class Impactor {
+public abstract class ImpactorUtils {
 
 	// The impactor service
 	private static EconomyService service = EconomyService.instance();
